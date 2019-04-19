@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
     Text,
     TouchableOpacity,
     Alert,
     Modal,
-} from 'react-native';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { styles } from './CodeScanner.styles';
-
+} from "react-native";
+import QRCodeScanner from "react-native-qrcode-scanner";
+import { styles } from "./CodeScanner.styles";
+// import { RNCamera } from "react-native-camera";
 
 export default class CodeScanner extends Component {
 
@@ -16,7 +16,7 @@ export default class CodeScanner extends Component {
         Alert.alert(
             "Scanned",
             response.data,
-            [{ text: 'OK' }],
+            [{ text: "OK" }],
             { cancelable: true },
         );
     }
@@ -56,9 +56,10 @@ export default class CodeScanner extends Component {
                         </TouchableOpacity>
                     }
                     fadeIn={false}
-                    ref={(node) => { this.scanner = node }}
+                    ref={node => this.scanner = node}
                     cameraProps={{
                         captureAudio: false,
+                        // autoFocus: RNCamera.Constants.AutoFocus.on,
                     }}
                     topViewStyle={styles.topComponent}
                     cameraStyle={styles.cameraComponent}

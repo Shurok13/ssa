@@ -1,3 +1,3 @@
-import CodeScanner from './CodeScanner';
+import CodeScanner from "./CodeScanner";
 
 export default CodeScanner;

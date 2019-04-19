@@ -1,42 +1,53 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     modal: {
         flex: 1,
-        flexDirection: 'column',
+        flexDirection: "column",
     },
     topComponent: {
-        flex: 0.20,
-        flexDirection: 'row',
+        flex: 0.25,
+        flexDirection: "row",
+        padding: 5,
     },
     cameraComponent: {
-        flex: 0.65,
+        flex: 0.5,
     },
     bottomComponent: {
-        flex: 0.15,
-        flexDirection: 'row',
+        flex: 0.25,
+        flexDirection: "row",
     },
     centerText: {
-        flex: 1,
+        position: "absolute",
+        top: 20,
+        left: 100,
+        right: 100,
+        zIndex: 100,
         fontSize: 18,
-        padding: 32,
-        color: '#777',
+        padding: 0,
+        color: "#777",
     },
     textBold: {
-        fontWeight: '500',
-        color: '#000',
+        fontWeight: "500",
+        color: "#000",
     },
     buttonText: {
         fontSize: 21,
-        color: 'rgb(0,122,255)',
+        color: "rgb(0,122,255)",
     },
     buttonTouchable: {
-        padding: 16,
+        padding: 5,
+        position: "absolute",
+        bottom: 15,
+        left: 150,
+        right: 150,
+        zIndex: 100,
     },
-    closeButtonText: {
-        position: 'absolute',
+    closeButton: {
+        position: "absolute",
         top: 20,
         left: 20,
         zIndex: 100,
+        padding: 5,
     },
 });
