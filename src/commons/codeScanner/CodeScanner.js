@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
     Text,
     TouchableOpacity,
@@ -11,15 +12,22 @@ import { styles } from "./CodeScanner.styles";
 
 export default class CodeScanner extends Component {
 
-    onSuccess(response) {
-        // console.log(response.data);
+    static propTypes = {
+        visible: PropTypes.bool.isRequired,
+        handleScannerVisible: PropTypes.func.isRequired,
+    };
+
+    // static defaultProps = {
+    // };
+
+    onSuccess = response => {
         Alert.alert(
             "Scanned",
             response.data,
             [{ text: "OK" }],
             { cancelable: true },
         );
-    }
+    };
 
     handleRescan = () => {
         this.scanner.reactivate();
