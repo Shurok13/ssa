@@ -39,12 +39,12 @@ export default class CodeScanner extends Component {
             <Modal
                 style={styles.modal}
                 visible={visible}
-                onRequestClose={() => handleScannerVisible()}
+                onRequestClose={() => handleScannerVisible("scannerVisible")}
                 animationType="fade"
             >
                 <TouchableOpacity
                     style={styles.closeButton}
-                    onPress={() => handleScannerVisible()}
+                    onPress={() => handleScannerVisible("scannerVisible")}
                 >
                     <Text style={styles.closeButtonText}>Close</Text>
                 </TouchableOpacity>

@@ -6,6 +6,7 @@ import {
     Alert,
 } from "react-native";
 import CodeScanner from "../../commons/codeScanner";
+import SettingsModal from "../../commons/settingsModal";
 import Loader from "../../commons/loader";
 import Storage from "../../helpers/storage";
 import { styles } from "./HomeComponent.styles";
@@ -17,6 +18,7 @@ export default class HomeComponent extends Component {
 
     state = {
         scannerVisible: false,
+        settingsVisible: false,
         loader: false,
     };
 
@@ -53,25 +55,39 @@ export default class HomeComponent extends Component {
 
     };
 
-    handleScannerVisible = () => {
-        this.setState({ scannerVisible: !this.state.scannerVisible });
+    handleModalVisible = modalName => {
+        this.setState({ [modalName]: !this.state[modalName] });
     };
 
     render() {
         return (
             <View style={styles.container}>
                 {this.state.loader && <Loader />}
-                <Text style={styles.welcome}>Welcome to Shambala Shop Assistant</Text>
+                <Text style={styles.welcome}>Shambala Shop Assistant</Text>
+                <TouchableOpacity
+                    style={styles.settingsButton}
+                    onPress={() => this.handleModalVisible("settingsVisible")}
+                >
+                    <Text>Settings</Text>
+                </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.scanButton}
-                    onPress={() => {this.handleScannerVisible();}}
+                    onPress={() => this.handleModalVisible("scannerVisible")}
                 >
                     <Text>Open Scanner</Text>
                 </TouchableOpacity>
-                <CodeScanner
-                    visible={this.state.scannerVisible}
-                    handleScannerVisible={this.handleScannerVisible}
-                />
+                {this.state.scannerVisible &&
+                    <CodeScanner
+                        visible={this.state.scannerVisible}
+                        handleScannerVisible={this.handleModalVisible}
+                    />
+                }
+                {this.state.settingsVisible &&
+                    <SettingsModal
+                        visible={this.state.settingsVisible}
+                        handleScannerVisible={this.handleModalVisible}
+                    />
+                }
             </View>
         );
     }
