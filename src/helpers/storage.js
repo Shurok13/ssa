@@ -26,7 +26,7 @@ const Storage = {
         this.setData(process.env.DATA_KEY, data);
     },
 
-    getFileData (token) {
+    getFileData () {
         this.getData(process.env.DATA_KEY);
     },
 

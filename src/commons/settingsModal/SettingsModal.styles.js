@@ -13,9 +13,11 @@ export const styles = StyleSheet.create({
     closeButton: {
         position: "absolute",
         top: 20,
-        left: 20,
+        left: 25,
         zIndex: 100,
-        padding: 5,
+        padding: 10,
+        borderWidth: 0.5,
+        borderColor: "gray",
     },
     titleText: {
         fontSize: 20,
@@ -31,6 +33,15 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         textAlignVertical: "top",
     },
+    isEmpty: {
+        opacity: 0.4,
+    },
+    linkText: {
+        fontSize: 12,
+        textAlign: "left",
+        marginLeft: 25,
+        marginTop: 25,
+    },
     saveButton: {
         height: 40,
         margin: 25,
@@ -42,10 +53,18 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         padding: 10,
     },
-    isEmpty: {
-        opacity: 0.4,
+    loadButton: {
+        height: 40,
+        width: 100,
+        margin: 25,
+        textAlignVertical: "center",
+        textAlign: "center",
+        borderWidth: 1,
+        borderColor: "gray",
+        alignItems: "center",
+        padding: 10,
     },
-    linkText: {
+    hashText: {
         fontSize: 12,
         textAlign: "left",
         marginLeft: 25,
