@@ -8,7 +8,7 @@ const Storage = {
     getData (key, defaultValue = null) {
         try {
             const item = AsyncStorage.getItem(key);
-            return item ? item : defaultValue;
+            return item !== null ? item : defaultValue;
         } catch (error) {
             return {};
         }

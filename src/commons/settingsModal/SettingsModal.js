@@ -11,6 +11,8 @@ import Storage from "../../helpers/storage";
 import Loader from "../../commons/loader";
 import { styles } from "./SettingsModal.styles";
 
+const URL_LINK = "URL_LINK";
+
 export default class SettingsModal extends Component {
 
     static propTypes = {
@@ -47,8 +49,10 @@ export default class SettingsModal extends Component {
     };
 
     getLink = async () => {
-        const link = await Storage.getData(process.env.URL_LINK, "");
-        link && link.length > 0 && this.setState({ link: link });
+        const link = await Storage.getData(URL_LINK, "false");
+        if (!!link && link.length > 0){
+            await this.setState({ link: link });
+        }
     };
 
     downloadFile = () => {
