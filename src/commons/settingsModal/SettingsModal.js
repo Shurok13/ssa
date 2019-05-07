@@ -57,6 +57,7 @@ export default class SettingsModal extends Component {
 
     downloadFile = () => {
         const that = this;
+        that.setState({ loader: true });
         fetch(that.state.link)
             .then(function(response) {
                 // console.log(response.headers.map);
@@ -73,15 +74,18 @@ export default class SettingsModal extends Component {
                     );
                     return false;
                 }
+                that.setState({ loader: false });
                 return response.json();
             })
             .then(function(myJson) {
                 that.getHash(myJson);
                 Storage.setFileData(JSON.stringify(myJson));
+                that.setState({ loader: false });
             })
             .catch(function (error) {
                 // eslint-disable-next-line no-console
                 console.log("error", error);
+                that.setState({ loader: false });
             });
     };
 
